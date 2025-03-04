@@ -1,0 +1,40 @@
+{% extends "caloriecounter/layout.html" %}
+
+{% block body %}
+<div class="custom-margin-responsive">
+  <div class="smaller-container text-center mt-5">
+    <form method="GET" action="{% url 'grocery_search' %}">
+      <input type="hidden" name="meal_type" value="{{ meal_type }}">
+      <input type="hidden" name="date" value="{{ selected_date|date:'Y-m-d' }}">
+      <input class="form-control mx-auto mt-5 mb-4" type="text" name="query" placeholder="What are you looking for?">
+      <button class="btn btn-primary mb-5" type="submit">Search</button>
+    </form>
+  </div>
+  {% for grocery in groceries %}
+  <div class="smaller-container text-start mt-5">
+   <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex flex-column align-items-center">
+      <h3 class="mt-4">{{ grocery.grocery_name }}</h3>
+      <div class="d-flex">
+        <p>{{ grocery.grams }} g</p>
+        <p>{{ grocery.calorie }} klc</p>
+      </div>
+    </div> 
+    <div class="d-flex flex-column align-items-center">
+     <a href="{% url 'grocery_detail' grocery.id %}?meal_type={{ meal_type }}&date={{ selected_date|date:'Y-m-d' }}">
+      <i class="fa-solid fa-circle-plus mt-4 mr-5"></i>
+     </a>  
+    </div>
+   </div>
+  </div>
+
+{% empty %}
+  {% if search_performed %}
+  <div class="text-center">
+     <p>No groceries found matching your search.</p>
+  </div>
+  {% endif %}
+{% endfor %}
+</div>
+
+{% endblock %}

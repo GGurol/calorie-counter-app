@@ -1,0 +1,28 @@
+{% extends "caloriecounter/layout.html" %}
+
+{% block body %}
+
+<h2 class="text-center mt-4 mb-4">Welcome to NutriCount!</h2>
+<div class="large-container text-center mb-5">
+     <p>Embark on a healthier lifestyle with our easy-to-use app that helps you track your daily nutrition and manage your weight. Simply log your meals, monitor your progress with our intuitive charts, and enjoy a collection of healthy recipes to support your journey towards achieving your fitness goals. Join the NutriCount community today and take the first step towards a healthier, happier you!
+     </p>
+</div>
+<div class="container-fluid"> 
+    <div class="row justify-content-around">
+    {% for story in stories %}
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 mx-4">
+       <div class="card">
+          <img src="{{ story.image_url_success }}" class="card-img-top-success" alt="{{ story.title_success }}">
+          <div class="card-body-custom">
+             <strong class="new-card-title m-0">{{ story.title_success }}</strong>
+             <p class="new-card-text">
+             {{ story.description }}
+             </p>
+          </div>
+       </div>
+       </div>
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

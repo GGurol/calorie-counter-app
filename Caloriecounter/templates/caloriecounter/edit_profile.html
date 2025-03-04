@@ -1,0 +1,45 @@
+{% extends "caloriecounter/layout.html" %}
+
+{% block body %}
+<div class="custom-margin-responsive">
+<h3 class="text-center mt-4 mb-4">Update your profile</h3>
+  <div class="large-container text-center mb-4">
+  <form action="{% url 'edit_profile' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group mt-4">
+        <label for="goals">Update your goal</label>
+        <select class="form-control text mx-auto" id="goals" name="goals">
+            {% for choice in goal_choices %}
+          <option value="{{ choice.goal_choice }}" {% if profile.your_goal.goal_choice == choice.goal_choice %}selected{% endif %}>
+             {{ choice.goal_choice }}
+          </option>
+            {% endfor %}
+        </select><br>
+        <label for="start_weight">Update your start weight</label><br>
+        <input class="form-control mx-auto" type="number" id="start_weight" name="start_weight" value="{{ profile.start_weight|stringformat:'g' }}"><br>
+        <label for="goal_weight">Update your goal weight</label><br>
+        <input class="form-control mx-auto" type="number" id="goal_weight" name="goal_weight" value="{{ profile.goal_weight|stringformat:'g' }}"><br>
+        <label for="calorie_goal">Update your calorie goal</label><br>
+        <input class="form-control mx-auto" type="number" id="calorie_goal" name="calorie_goal" value="{{ profile.calorie_goal }}"><br>
+        <label for="activity">Update your activity</label>
+        <select class="form-control mx-auto mb-3" id="activity" name="activity">
+        {% for choice in activity_choices %}
+            <option value="{{ choice.activity_choice }}" {% if profile.activity.activity_choice == choice.activity_choice %}selected{% endif %}>
+                {{ choice.activity_choice }}
+            </option>
+            {% endfor %}
+        </select>
+        <label class="mt-5" for="carbs">Update your carbs %</label><br>
+        <input class="form-control mx-auto" type="number" id="carbs-input" name="carbs" value="{{ profile.nutrition_goal.carbs }}"><br>
+        <label for="protein">Update your protein %</label>
+        <input class="form-control mx-auto" type="number" id="protein-input" name="protein" value="{{ profile.nutrition_goal.protein }}"><br>
+        <label for="fat">Update your fat %</label><br>
+        <input class="form-control mx-auto" type="number" id="fat-input" name="fat" value="{{ profile.nutrition_goal.fat }}"><br>
+    </div> 
+  </div>
+  <div class="text-center">
+     <input class="btn btn-primary mt-2 mb-5" type="submit" value="Save Changes">  
+  </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "caloriecounter/layout.html" %}
+
+{% block body %}
+
+<div class="custom-margin-responsive">
+  <div class="smaller-container text-center" style="margin-top:100px;">
+     <h2 class="mt-4 mb-5">{{ meal_type }}</h2>
+     <hr style="width: 95%">
+   <div class="d-flex justify-content-around">
+     <p class="mr-4">Calories: {{ total_calories }} klc</p>
+     <p class="mr-4">Grams: {{ total_grams }} g</p>
+     <p class="mr-4">Protein: {{ total_protein }} g</p>
+     <p class="mr-4">Fat: {{ total_fat }} g</p>
+   </div>
+   <hr style="width: 95%">
+   {% for meal_grocery in meal_groceries %}
+   <div class="d-flex flex-column">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex">
+            <a href="{% url 'add_meal' %}?meal_grocery_id={{ meal_grocery.id }}&meal_type={{ meal_type }}&selected_date={{ selected_date|date:'Y-m-d' }}">
+            <i class="bi bi-pencil ml-4" style="font-size:18px;"></i></a> 
+            <div class="d-flex flex-column">
+               <p class="p-style-g"> {{ meal_grocery.grocery.grocery_name }} - {{ meal_grocery.updated_grams }} g </p>
+               <p class="p-style-klc">{{ meal_grocery.updated_calorie }} klc</p>
+            </div>
+        </div>
+          <a href="{% url 'delete_meal_grocery' meal_grocery.id %}?meal_type={{ meal_type }}&date={{ selected_date|date:'Y-m-d' }}"><i class="bi bi-trash3 mr-4"></i></a>
+      </div>
+   </div>
+   <hr style="width: 95%">
+ 
+    {% empty %}
+    <li class="mt-4 mb-4">No meals found for {{ meal_type }} on {{ selected_date|date:"Y-m-d" }}</li>
+    {% endfor %}
+  </div>
+
+  <div class="text-center">
+     <a class="btn btn-primary mt-4" href="{% url 'grocery_search' %}?meal_type={{ meal_type }}&date={{ selected_date|date:"Y-m-d" }}">Add more</a>
+  </div>
+</div>
+
+{% endblock %}

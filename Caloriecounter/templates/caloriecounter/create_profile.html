@@ -1,0 +1,39 @@
+{% extends "caloriecounter/layout.html" %}
+
+{% block body %}
+<div class="custom-margin-responsive">
+  <div class="container text-center">
+  <h2 class="mt-2 mb-4">Create your profile</h2>
+  <div class="container-1">
+  <form action="{% url 'create_profile' %}" method="post">
+    {% csrf_token %} 
+    <div class="form-group">
+        <select class="form-control mx-auto mt-5"  id="goals" name="goals">
+          <option value="" disabled selected>Select your goal</option>
+          <option value="lose weight"><p>LOSE WEIGHT</p></option>
+          <option value="gain muscle">GAIN MUSCLE</option>
+          <option value="maintenance">MAINTENANCE</option>
+        </select><br><br>
+        <input class="form-control mx-auto" type="number" id="start_weight" name="start_weight" value="" placeholder="Enter your start weight" required><br><br>
+        <input class="form-control mx-auto" type="number" id="goal_weight" name="goal_weight" value="" placeholder="Enter your goal weight" required><br><br>
+        <input class="form-control mx-auto" type="number" id="calorie_goal" name="calorie_goal" value="" placeholder="Enter your daily calories" required><br><br>
+        <select class="form-control mx-auto" id="activity" name="activity">
+          <option value="" disabled selected>Select your activity level</option>
+          <option value="low">LOW</option>
+          <option value="moderate">MODERATE</option>
+          <option value="high">HIGH</option>
+        </select><br><br>
+    </div>
+  </div>
+  <div class="container-1 mt-4 mb-2">
+    <h4 class="mt-4 mb-4">Add your nutrition goal</h4>
+    <input class="form-control mx-auto" type="number" id="carbs-input" name="carbs" value="50%" placeholder="Carbs %" min="0" max="100" required><br><br>
+    <input class="form-control mx-auto" type="number" id="protein-input" name="protein" value="25%" placeholder="Protein %" min="0" max="100" required ><br><br>
+    <input class="form-control mx-auto" type="number" id="fat-input" name="fat" value="25%" placeholder="Fat %" min="0" max="100" required><br><br>
+    <p id="sum-display" placeholder="100">Total: <span id="total-percentage">100</span></p>
+  </div>
+    <input class="btn btn-primary mt-3 mb-5" type="submit" value="Create profile">  
+  </form> 
+  </div>
+</div>
+{% endblock %}

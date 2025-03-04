@@ -1,0 +1,270 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color:#303246;
+}
+
+h1, h2,h3, h4, h5, h6, p, label, span, li {
+    color: #fff;
+}
+
+p{
+    font-size: 18px;
+    margin: 20px;
+}
+
+hr{
+    background-color: #52535a;
+}
+
+.logo-navbar {
+    background-color: #2e2f38;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+.fa-apple-whole{
+    margin-right: 15px;
+}
+
+.wrapper{
+    color: #fff;
+    font-size: 18px;
+}
+
+.profile{
+    border-bottom: 1px solid #fff;
+}
+
+.nutrition{
+    width: 150px;
+    border-bottom: 1px solid #fff;
+}
+
+.bi-pencil{
+    font-size: 25px;
+    margin-right: 15px;
+}
+
+.form-control {
+    width: 50%;
+    background-color: #2e2f38;
+    border-radius: 10px;
+    border: 1px solid #5f6164;
+    color: #fff;
+}
+
+input.form-control:focus, select.form-control:focus {
+    background-color: #2e2f38;
+    border-color: #2d3550;
+    color: #fff;
+}
+
+input.form-control::placeholder {
+   color: #888686;
+}
+
+.nav-link {
+  color: #fff;
+  font-size: 18px;
+}
+
+.nav-link-app{
+    font-size: 25px;
+    margin: 0 35px 0 65px;
+    color: #fff;
+}
+
+.wrapper a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.custom-margin{
+    margin-top: 150px;
+}
+
+.custom-margin-x{
+    margin: 85px 55px 55px 55px;
+}
+
+.custom-p{
+    margin: 15px 0 15px 15px;
+}
+
+.custom-margin-responsive {
+    margin-top: 80px;
+}
+
+@media screen and (min-width: 500px) and (max-width: 1100px) {
+    .custom-margin-responsive {
+        margin-top: 200px; 
+    }
+}
+
+.fa-circle-plus{
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.fa-bicycle {
+    color: #fff;
+    font-size: 30px;
+}
+
+.p-style-text{
+    margin-top: 40px; 
+    margin-bottom: 5px; 
+    margin-left: 0;
+}
+
+.p-style-klc{
+    margin-top: 5px; 
+    margin-bottom: 0; 
+    margin-left: 0;
+}
+
+.p-style-g{
+    margin-top: 0; 
+    margin-bottom: 5px;
+    margin-left: 0;
+}
+
+.p-style-macros{
+    margin-top: 5px; 
+    margin-bottom: 15px;
+    margin-left: 0;
+}
+
+.fasting-card{
+background-color: #303246; 
+border:1px solid #545664; 
+border-radius:20px; 
+height:auto;
+}
+
+
+.calories{
+    font-size: 14px;
+}
+
+.container-1 {
+    margin: auto;
+    border: 1px solid #52535a;
+    border-radius: 20px;
+}
+
+.large-container{
+    margin: auto;
+    width: 70%;
+    border: 1px solid #52535a;
+    border-radius: 20px;
+}
+
+.large-container-custom{
+    background-color: #fff;
+    margin: auto;
+    width: 70%;
+    border: 1px solid #52535a;
+    border-radius: 20px;
+}
+
+.message{
+    color: #000;
+}
+
+.smaller-container{
+    margin: auto;
+    width: 50%;
+    border: 1px solid #52535a;
+    border-radius: 20px;
+}
+
+.fasting-container{
+    margin: auto;
+    width: 50%;
+}
+
+.meal_name:hover{
+    color:#2a49ad; 
+}
+
+.stopwatch{
+    font-size: 30px;
+}
+
+.card-img-top-custom {
+    height: 300px;
+    object-fit: cover;
+}
+  
+.card-body-custom {
+    max-height: 250px;
+    overflow: auto;
+} 
+
+.card-img-top-success {
+    width: 100%;
+    height: 350px; 
+    object-fit: cover; 
+}
+
+.new-card-title{
+    color:#000; 
+    padding:20px; 
+    font-size:20px;
+}
+
+.new-card-text{
+    color:#000; 
+  
+}
+
+.card{
+    margin-bottom:35px;
+}
+
+.instructions {
+    display:none; 
+    color:#000; 
+    width: 200px;
+}
+
+.calendar {
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+}
+
+#calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#calendar-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.circular-chart-label p {
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.circle {
+  stroke-linecap: round; 
+}
+
+.circle-danger {
+    stroke: #ff6347; 
+}
+
+
+

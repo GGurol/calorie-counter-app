@@ -1,0 +1,67 @@
+{% extends "caloriecounter/layout.html" %}
+
+{% block body %}
+<div class="custom-margin-responsive">
+  <input type="hidden" id="calorie-value-template" value="{{ grocery.calorie }}">
+  <input type="hidden" id="protein-value-template" value="{{ grocery.total_protein }}">
+  <input type="hidden" id="carbs-value-template" value="{{ grocery.total_carbs }}">
+  <input type="hidden" id="fibers-value-template" value="{{ grocery.dietary_fibers}}">
+  <input type="hidden" id="sugars-value-template" value="{{ grocery.sugars }}">
+  <input type="hidden" id="fat-value-template" value="{{ grocery.total_fat}}">
+  <input type="hidden" id="saturated-fat-value-template" value="{{ grocery.saturated_fat }}">
+  <input type="hidden" id="sodium-value-template" value="{{ grocery.sodium }}">
+
+  <div class="smaller-container mt-5">
+    <h3 class="mt-2 ml-3 text-center">{{ grocery.grocery_name }}</h3>
+    <hr style="width: 95%">
+    <div class="d-flex align-items-center justify-content-around">
+      <div class="d-flex flex-column mb-3">
+        <p class="p-style-g">{{ grocery.total_carbs }} g</p>
+        <p class="p-style-macros">Carbs</p>
+      </div>
+      <div class="d-flex flex-column mb-3">
+        <p class="p-style-g">{{ grocery.total_protein }} g</p>
+        <p class="p-style-macros">Protein</p>
+      </div>
+      <div class="d-flex flex-column mb-3">
+        <p class="p-style-g">{{ grocery.total_fat }} g</p>
+        <p class="p-style-macros">Fat</p>
+      </div>
+    </div> 
+    <hr style="width: 95%">
+    <p>Calories: <span id="calories-value">{{ grocery.calorie }} klc</span></p>
+    <p>Protein: <span id="protein-value">{{ grocery.total_protein }} g</span></p>
+    <p>Carbs: <span id="carbs-value">{{ grocery.total_carbs }} g</span></p>
+    <p>Fibers: <span id="fibers-value">{{ grocery.dietary_fibers }} g</span></p>
+    <p>Sugar: <span id="sugar-value">{{ grocery.sugars }} g</span></p>
+    <p>Fat: <span id="fat-value">{{ grocery.total_fat }} g</span></p>
+    <p>Saturated fat: <span id="saturated-fat-value">{{ grocery.saturated_fat }} g</span></p>
+    <p class="mb-5">Sodium: <span id="sodium-value">{{ grocery.sodium }} mg</span></p>
+    <div class="d-flex align-items-center mb-4">
+      <label class="ml-3" for="grams-input">Grams:</label>
+      <input class="form-control ml-3" id="grams-input" type="number" value="{{ grocery.grams }}" />
+    </div>
+  </div>
+
+  <div class="text-center">
+    <form method="post" action="{% url 'add_meal' %}">
+    {% csrf_token %}
+      <input type="hidden" name="grocery_id" value="{{ grocery.id }}" />
+      <input type="hidden" name="meal_grocery_id" value="{{ meal_grocery.id|default_if_none:'' }}">
+      <input type="hidden" name="meal_type" value="{{ meal_type }}" />    
+      <input type="hidden" name="selected_date" value="{{ selected_date|date:'Y-m-d' }}">
+      <input type="hidden" name="updated_grams" id="updated-grams" value="{{ grocery.grams }}" />
+      <input type="hidden" name="updated_calorie" id="updated-calorie" value="{{ grocery.calorie }}" />
+      <input type="hidden" name="updated_total_protein" id="updated-total_protein" value="{{ grocery.total_protein }}">
+      <input type="hidden" name="updated_total_carbs" id="updated-total_carbs" value="{{ grocery.total_carbs}}" />
+      <input type="hidden" name="updated_dietary_fibers" id="updated-dietary_fibers" value="{{ grocery.dietary_fibers }}" />
+      <input type="hidden" name="updated_sugars" id="updated-sugars" value="{{ grocery.sugars }}" />
+      <input type="hidden" name="updated_total_fat" id="updated-total_fat" value="{{ grocery.total_fat }}" />
+      <input type="hidden" name="updated_saturated_fat" id="updated-saturated_fat" value="{{ grocery.saturated_fat }}" />
+      <input type="hidden" name="updated_sodium" id="updated-sodium" value="{{ grocery.sodium }}">
+      <button class="btn btn-primary mt-4 mb-5" type="submit">Save</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

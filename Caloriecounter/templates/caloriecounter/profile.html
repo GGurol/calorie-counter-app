@@ -1,0 +1,56 @@
+{% extends "caloriecounter/layout.html" %}
+
+{% block body %}
+<div class="custom-margin-responsive">
+  <div class="large-container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h4 class="m-3 profile">Your Profile</h4>
+      <a href="{% url 'edit_profile' %}"><i class="bi bi-pencil"></i></a>
+    </div>
+    <div class="d-flex flex-column">
+      <div class="d-flex">
+        <p class="custom-p">Your goal is to:</p>
+        <p class="custom-p">{{ your_goal }}</p> 
+      </div>
+      <div class="d-flex">
+        <p class="custom-p">Your start weight is:</p>
+        <p class="custom-p">{{ start_weight }} kg</p>
+      </div>
+      <div class="d-flex">
+        <p class="custom-p">Your goal weight is:</p>
+        <p class="custom-p">{{ goal_weight }} kg</p>
+      </div>
+      <div class="d-flex">
+        <p class="custom-p">Your calorie goal is:</p>
+        <p class="custom-p">{{ calorie_goal }} klc</p>
+      </div>
+      <div class="d-flex">
+        <p class="custom-p">Your activity level is: </p>
+        <p class="custom-p">{{ activity }}</p>
+      </div>
+    </div>
+    <hr>
+    <h4 class="m-3 nutrition">Your Nutrition</h4>
+      <div class="d-flex">
+        <p class="custom-p">Carbs:</p>
+        <p class="custom-p">{{ carbs }} %</p> 
+      </div>
+      <div class="d-flex">
+        <p class="custom-p">Protein:</p>
+        <p class="custom-p">{{ protein }} %</p>
+      </div>
+      <div class="d-flex">
+        <p class="custom-p">Fat:</p>
+        <p class="custom-p">{{ fat }} %</p>
+      </div>
+  </div>
+<br>
+</div>
+
+<div class="large-container-custom text-center mb-5">
+{% if message %}
+  <p class="message">{{ message }}</p>
+{% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "caloriecounter/layout.html" %}
+
+{% block body %}
+<div class="custom-margin-responsive">
+  <div class="smaller-container text-center" style="margin-top:150px;">
+    <i class="fa-solid fa-bicycle mt-4 mb-4"></i>
+    <form method="post" action="{% url 'steps' %}">
+       {% csrf_token %}
+       <input type="hidden" name="selected_date" value="{{ selected_date|date:'Y-m-d' }}">
+       <input class="form-control mx-auto mb-4" type="number" name="steps" id="steps" placeholder="Enter steps">
+  </div>
+  <div class="text-center">
+    <button class="btn btn-primary mt-4 mb-4">Add steps</button>
+  </div>
+    </form>
+  <div class="smaller-container text-center mt-4">
+    <p>Last recorded steps: {{ steps }}</p>
+  </div>
+</div>
+{% endblock %}

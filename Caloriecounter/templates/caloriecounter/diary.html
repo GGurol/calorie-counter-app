@@ -1,0 +1,176 @@
+{% extends "caloriecounter/layout.html" %}
+
+{% block body %}
+
+<div class="date-display text-center mt-5 mb-5">
+  <form id="date-form" method="post" action="{% url 'diary' %}">
+  {% csrf_token %}
+    <div class="date-picker">
+      <input type="date" name="selected_date" id="selected-date" value="{{ selected_date|date:'Y-m-d' }}">
+        <label for="selected-date" class="date-icon"></label>
+    </div>
+  </form>
+</div>
+
+<!-- Summary -->
+<div class="large-container">
+  <div class="d-flex justify-content-around">
+    <div class="d-flex flex-column mt-5">
+      <p class="p-style-text">Eaten</p>   
+      <p class="p-style-klc">{{ total_klc }} klc</p>  
+    </div>
+    <div class="circle-progress-container mt-5" style="position: relative; width: 120px; height: 120px;">
+      <svg viewBox="0 0 36 36" class="circular-chart">
+      <!-- Background circle -->
+      <path class="circle-bg"
+            d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831"
+            fill="none" stroke="#eee" stroke-width="3.8" />
+      
+      <!-- Progress circle -->
+      <path class="circle {% if calories_over %}circle-danger{% endif %}"
+      stroke-dasharray="{{ calories_percentage }}, 100"
+      d="M18 2.0845
+        a 15.9155 15.9155 0 0 1 0 31.831
+        a 15.9155 15.9155 0 0 1 0 -31.831"
+      fill="none" stroke="#00acc1" stroke-width="2.8" stroke-linecap="round" />
+
+    </svg>
+    <span class="circular-chart-label" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">{% if calories_over %}
+        <p>Exceeded: {{ exceeded_calories }} klc</p>
+    {% else %}
+        <p>Remaining: {{ remaining_calories }} klc</p>
+    {% endif %}
+    </span>
+    </div>
+    <div class="d-flex flex-column mt-5">
+      <p class="p-style-text">Burned</p>   
+      <p class="p-style-klc">{{ calories_burned}} klc</p>  
+    </div>
+  </div>
+  <div class="d-flex justify-content-around">
+     <div class="d-flex flex-column custom-margin-x">
+       <h6 class="text-uppercase">Carbs</h6>
+       <div class="progress">
+       <div class="progress-bar bg-info" role="progressbar" style="width: {{ carbs_percentage }}%" aria-valuenow="{{ carbs_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+       </div>
+       <p>{{ total_carbs }} / {{ gram_of_carbs }} g</p>
+     </div>
+    <div class="d-flex flex-column custom-margin-x"> 
+      <h6 class="text-uppercase">Protein</h6>
+      <div class="progress" style="height: 15px;">
+        <div class="progress-bar bg-info" role="progressbar" style="width: {{ protein_percentage }}%;" aria-valuenow="{{ protein_percentage }}" aria-valuemin="0" aria-valuemax="100">
+        </div>
+      </div>
+      <p>{{ total_protein }} / {{ gram_of_protein }} g</p>
+    </div>
+    <div class="d-flex flex-column custom-margin-x">
+      <h6 class="text-uppercase">Fat</h6>
+      <div class="progress" style="height: 15px;">
+      <div class="progress-bar bg-info" role="progressbar" style="width: {{ fat_percentage }}%;" aria-valuenow="{{ fat_percentage }}" aria-valuemin="0" aria-valuemax="100">
+      </div>
+    </div>
+      <p>{{ total_fat }} / {{ gram_of_fat }} g</p>
+    </div>
+  </div>
+</div>
+
+<!-- Nutrition -->
+<div class="large-container mt-2">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <div class="circle-progress-container ml-4 mt-2" style="position: relative; width: 80px; height: 80px;">
+          <svg viewBox="0 0 36 36" class="circular-chart">
+    
+          <path class="circle-bg"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none" stroke="#eee" stroke-width="3.8" />
+          
+          <path class="circle"
+                stroke-dasharray="{{ breakfast_percentage }}, 100"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none" stroke="#00acc1" stroke-width="2.8" stroke-linecap="round" />
+          </svg>
+          <span class="circular-chart-label" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.3em;"></span>
+        </div>
+        <div class="d-flex flex-column">
+          <a class="mx-3 mt-4" href="{% url 'show_meal' %}?meal_type=Breakfast&date={{ selected_date|date:"Y-m-d"}}"><h5 class="meal_name">Breakfast</h5></a>
+          <p class="calories">{{ breakfast_calories }} / {{ meal_calorie_goal }} klc</p>
+        </div>
+      </div>
+       <a class="mr-3" href="{% url 'grocery_search' %}?meal_type=Breakfast&date={{ selected_date|date:"Y-m-d" }}"><i class="fa-solid fa-circle-plus"></i></a>
+      </div>
+  
+    <hr style="width: 95%;">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <div class="circle-progress-container ml-4" style="position: relative; width: 80px; height: 80px;">
+          <svg viewBox="0 0 36 36" class="circular-chart">
+    
+          <path class="circle-bg"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none" stroke="#eee" stroke-width="3.8" />
+          
+          <path class="circle"
+                stroke-dasharray="{{ lunch_percentage }}, 100"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none" stroke="#00acc1" stroke-width="2.8" stroke-linecap="round" />
+        </svg>
+          <span class="circular-chart-label" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.3em;"></span>
+        </div>
+        <div class="d-flex flex-column">
+          <a class="mx-3 mt-4" href="{% url 'show_meal' %}?meal_type=Lunch&date={{ selected_date|date:"Y-m-d"}}"><h5 class="meal_name">Lunch</h5></a>
+          <p class="calories">{{ lunch_calories }} / {{ meal_calorie_goal }} klc</p>
+        </div>
+      </div>
+       <a class="mr-3" href="{% url 'grocery_search' %}?meal_type=Lunch&date={{ selected_date|date:"Y-m-d" }}"><i class="fa-solid fa-circle-plus"></i></a>
+      </div>
+    <hr style="width: 95%;">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <div class="circle-progress-container ml-4 mt-2 mb-4" style="position: relative; width: 80px; height: 80px;">
+          <svg viewBox="0 0 36 36" class="circular-chart">
+    
+          <path class="circle-bg"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none" stroke="#eee" stroke-width="3.8" />
+          
+          <path class="circle"
+                stroke-dasharray="{{ dinner_percentage }}, 100"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none" stroke="#00acc1" stroke-width="2.8" stroke-linecap="round" />
+        </svg>
+          <span class="circular-chart-label" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.3em;"></span>
+        </div>
+        <div class="d-flex flex-column">
+          <a class="mx-3" href="{% url 'show_meal' %}?meal_type=Dinner&date={{ selected_date|date:"Y-m-d"}}"><h5 class="meal_name">Dinner</h5></a>
+          <p class="calories">{{ dinner_calories }} / {{ meal_calorie_goal }} klc</p>
+        </div>
+      </div>
+       <a class="mr-3" href="{% url 'grocery_search' %}?meal_type=Dinner&date={{ selected_date|date:"Y-m-d" }}"><i class="fa-solid fa-circle-plus"></i></a>
+    </div>
+</div>
+
+<div class="large-container mt-5 mb-5 text-center">
+  <div class="d-flex justify-content-center align-items-center my-4">
+    <a href="{% url 'steps' %}?selected_date={{ selected_date|date:'Y-m-d' }}"><i class="fa-solid fa-circle-plus"></i></a>
+    <h5>Add activity</h5>
+  </div>
+</div> 
+{% endblock %} 
+
+
+

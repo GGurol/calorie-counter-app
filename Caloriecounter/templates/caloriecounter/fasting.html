@@ -1,0 +1,49 @@
+{% extends "caloriecounter/layout.html" %}
+
+{% block body%}
+<h2 class="mt-5 text-center">Start your fasting now!</h2>
+<div class="smaller-container text-center mt-5">
+  <div class="mt-4" id="stopwatch">
+    <span class="stopwatch" id="hours">00:</span>:<span class="stopwatch" id="minutes">00:</span>:<span class="stopwatch" id="seconds">00</span>
+    <br>
+    <button id="startStopBtn" class="btn btn-primary mt-4 mb-4" onclick="toggleStopwatch()">Start fasting</button>
+    <br>
+  </div>
+    <p id="fastingMessage"></p>
+</div>
+
+<div class="fasting-container mt-5 mb-5">
+  <div class="row">
+    <div class="fasting-card mt-4">
+      <div class="card-body">
+        <h5 class="card-title ml-4 mb-4 mt-3">16:8 Fasting Method</h5>
+        <hr>
+        <p class="card-text"> This method involves fasting for 16 hours each day and eating all your meals within an 8-hour window. For example, you might eat your meals between 12:00 PM and 8:00 PM,
+          <span id="more-16-8" style="display: none;">then fast from 8:00 PM until 12:00 PM the next day. This method is popular because it's relatively easy to follow, and it's flexible enough to fit into most lifestyles.</span>
+        </p>
+        <button onclick="readMore('16-8')" id="myBtn-16-8" class="btn btn-primary ml-3">Read More</button>
+      </div>
+    </div>
+    <div class="fasting-card mt-4">
+      <div class="card-body">
+        <h5 class="card-title ml-4 mb-4 mt-3">5:2 Fasting Method</h5>
+        <hr>
+        <p class="card-text">This approach involves eating normally for five days of the week and reducing calorie intake to about 500-600 calories on the other two days. These two fasting days 
+        <span id="more-5-2" style="display: none;">should not be consecutive. This method is a form of modified fasting that may be easier for some people because the calorie restriction is only for two days per week. </span></p>
+        <button onclick="readMore('5-2')" id="myBtn-5-2" class="btn btn-primary ml-3">Read More</button>
+      </div>
+    </div>
+    <div class="fasting-card mt-4">
+      <div class="card-body">
+        <h5 class="card-title ml-4 mb-4 mt-3">24 Fasting Method</h5>
+        <hr>
+        <p class="card-text">This involves a 24-hour fast. During the fasting period, no food is consumed, but water, tea and other non-caloric beverages are allowed. This method requires a full fast for 24 hours,
+        <span id="more-24" style="display: none;">such as from dinner one day to dinner the next day. It's a straightforward approach but can be challenging for those not used to going without food so long. </span></p>
+        <button onclick="readMore('24')" id="myBtn-24" class="btn btn-primary ml-3">Read More</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

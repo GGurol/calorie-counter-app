@@ -1,0 +1,23 @@
+{% extends "caloriecounter/layout.html" %}
+
+{% block body %}
+
+<h2 class="text-center custom-margin">Login</h2>
+
+<div class="conatiner text-center my-5">
+<form action="{% url 'login' %}" method="post">
+{% csrf_token %}
+  <div class="form-group">
+    <input class="form-control mx-auto" type="text" name="username" placeholder="Username" required>
+  </div>
+   <div class="form-group">
+    <input class="form-control mx-auto" type="password" name="password" placeholder="Password" required>
+   </div>
+    <input class="btn btn-primary" type="submit" value="Login">
+</form>
+  <div class="wrapper text-center my-3">
+   Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+  </div>
+</div>
+{% endblock %}
+  
