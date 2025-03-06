@@ -1,6 +1,6 @@
 ## 🥗 NutriCount - Calorie Counting App
 
-#### 🔗 Live Demo: [Try the App Here](https://your-deployment-link.com)
+#### 🔗 Live Demo: [Try the App Here](https://your-deployment-link.com)](https://calorie-counter-app-urlp.onrender.com)
 
 ---
 
