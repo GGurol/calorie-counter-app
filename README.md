@@ -112,4 +112,4 @@ python manage.py runserver
 
 ### 🏆 Acknowledgments
 
-This project was developed as part of the Harvard CS50W: Web Programming with Python and JavaScript course. Special thanks to all contributors and developers who have supported this project.
+This project was developed as part of the Harvard CS50W: Web Programming with Python and JavaScript course.
