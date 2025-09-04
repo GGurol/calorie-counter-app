@@ -1,7 +1,5 @@
 ## 🥗 NutriCount - Calorie Counting App
 
-#### 🔗 Live Demo: [Try the App Here](https://calorie-counter-app-urlp.onrender.com)
-
 ---
 
 ### 📜 Overview
@@ -34,26 +32,22 @@ NutriCount is a calorie and nutrition tracking web application that helps users 
 
 Clone the repository
 ```sh
-git clone https://github.com/Martina-Talan/NutriCount.git
-cd NutriCount
+git clone https://github.com/GGurol/calorie-counter-app.git
+cd calorie-counter-app
 ```
 
-Install dependencies:
+Build Docker:
 ```sh
-pip install -r requirements.txt
+docker compose up --build -d
 ```
 Apply database migrations:
 ```sh
-python manage.py makemigrations Caloriecounter
-python manage.py migrate
+docker compose exec web python manage.py makemigrations
+docker compose exec web python manage.py migrate
 ```
 Create a superuser (optional for admin access):
 ```sh
-python manage.py createsuperuser
-```
-Start the development server:
-```sh
-python manage.py runserver
+docker compose exec web python manage.py createsuperuser
 ```
 
 ---
@@ -101,6 +95,8 @@ python manage.py runserver
 ### 🛠️ Technologies Used
 
 - __Django__ – Backend framework
+
+- __SQLite__ – Backend Database
 
 - __JavaScript__ – Interactive frontend logic
 
