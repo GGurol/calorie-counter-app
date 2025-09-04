@@ -1,0 +1,182 @@
+.
+├── Caloriecounter
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   ├── 0002_alter_profile_activity_alter_profile_goal_choice.py
+│   │   ├── 0003_rename_goal_choice_profile_your_goal.py
+│   │   ├── 0004_activitychoices_goalchoices_and_more.py
+│   │   ├── 0005_nutritional_alter_profile_nutritional_goal.py
+│   │   ├── 0006_remove_nutritional_macronutrient_nutritional_carbs_and_more.py
+│   │   ├── 0007_remove_nutritional_percentage_and_more.py
+│   │   ├── 0008_nutritional_total.py
+│   │   ├── 0009_profile_carbs_profile_fett_profile_protein_and_more.py
+│   │   ├── 0010_nutrition_remove_profile_carbs_remove_profile_fett_and_more.py
+│   │   ├── 0011_rename_fett_nutrition_fat.py
+│   │   ├── 0012_recipe.py
+│   │   ├── 0013_rename_gram_groceries_grams_groceries_dietary_fibers_and_more.py
+│   │   ├── 0014_rename_groceries_g.py
+│   │   ├── 0015_rename_g_grocery.py
+│   │   ├── 0016_rename_week_goal_to_lose_or_gain_profile_week_goal.py
+│   │   ├── 0017_user.py
+│   │   ├── 0018_alter_user_options_alter_user_managers_and_more.py
+│   │   ├── 0019_delete_recipes.py
+│   │   ├── 0020_userprofile.py
+│   │   ├── 0021_profile_profile_created_profile_user_and_more.py
+│   │   ├── 0022_alter_profile_user.py
+│   │   ├── 0023_nutrition_user.py
+│   │   ├── 0024_alter_nutrition_user.py
+│   │   ├── 0025_remove_nutrition_user.py
+│   │   ├── 0026_rename_saturated_fet_grocery_saturated_fat_and_more.py
+│   │   ├── 0027_alter_grocery_dietary_fibers_and_more.py
+│   │   ├── 0028_meals.py
+│   │   ├── 0029_rename_meals_meal.py
+│   │   ├── 0030_profile_dates.py
+│   │   ├── 0031_alter_profile_dates.py
+│   │   ├── 0032_remove_profile_dates.py
+│   │   ├── 0033_mealgrocery.py
+│   │   ├── 0034_remove_meal_date.py
+│   │   ├── 0035_mealgrocery_updated_dietary_fibers_and_more.py
+│   │   ├── 0036_meal_date.py
+│   │   ├── 0037_alter_meal_date.py
+│   │   ├── 0038_alter_profile_user.py
+│   │   ├── 0039_remove_profile_week_goal.py
+│   │   ├── 0040_profile_steps.py
+│   │   ├── 0041_alter_profile_steps.py
+│   │   ├── 0042_steps_remove_profile_steps.py
+│   │   ├── 0043_steps_user.py
+│   │   ├── 0044_alter_steps_user.py
+│   │   ├── 0045_steps_date.py
+│   │   ├── 0046_successstories.py
+│   │   ├── 0047_alter_profile_goal_weight_alter_profile_start_weight.py
+│   │   ├── 0048_alter_recipe_ingredients_alter_recipe_instructions.py
+│   │   ├── 0049_rename_image_url_successstories_image_url_success.py
+│   │   ├── 0050_successstories_description_and_more.py
+│   │   ├── 0051_alter_successstories_description_and_more.py
+│   │   ├── 0052_remove_mealgrocery_grams_mealgrocery_updated_grams.py
+│   │   ├── 0053_alter_mealgrocery_updated_grams.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── 0001_initial.cpython-38.pyc
+│   │       ├── 0002_alter_profile_activity_alter_profile_goal_choice.cpython-38.pyc
+│   │       ├── 0003_rename_goal_choice_profile_your_goal.cpython-38.pyc
+│   │       ├── 0004_activitychoices_goalchoices_and_more.cpython-38.pyc
+│   │       ├── 0005_nutritional_alter_profile_nutritional_goal.cpython-38.pyc
+│   │       ├── 0006_remove_nutritional_macronutrient_nutritional_carbs_and_more.cpython-38.pyc
+│   │       ├── 0007_remove_nutritional_percentage_and_more.cpython-38.pyc
+│   │       ├── 0008_nutritional_total.cpython-38.pyc
+│   │       ├── 0009_profile_carbs_profile_fett_profile_protein_and_more.cpython-38.pyc
+│   │       ├── 0010_nutrition_remove_profile_carbs_remove_profile_fett_and_more.cpython-38.pyc
+│   │       ├── 0011_rename_fett_nutrition_fat.cpython-38.pyc
+│   │       ├── 0012_recipe.cpython-38.pyc
+│   │       ├── 0013_rename_gram_groceries_grams_groceries_dietary_fibers_and_more.cpython-38.pyc
+│   │       ├── 0014_rename_groceries_g.cpython-38.pyc
+│   │       ├── 0015_rename_g_grocery.cpython-38.pyc
+│   │       ├── 0016_rename_week_goal_to_lose_or_gain_profile_week_goal.cpython-38.pyc
+│   │       ├── 0017_user.cpython-38.pyc
+│   │       ├── 0018_alter_user_options_alter_user_managers_and_more.cpython-38.pyc
+│   │       ├── 0019_delete_recipes.cpython-38.pyc
+│   │       ├── 0020_userprofile.cpython-38.pyc
+│   │       ├── 0021_profile_profile_created_profile_user_and_more.cpython-38.pyc
+│   │       ├── 0022_alter_profile_user.cpython-38.pyc
+│   │       ├── 0023_nutrition_user.cpython-38.pyc
+│   │       ├── 0024_alter_nutrition_user.cpython-38.pyc
+│   │       ├── 0025_remove_nutrition_user.cpython-38.pyc
+│   │       ├── 0026_rename_saturated_fet_grocery_saturated_fat_and_more.cpython-38.pyc
+│   │       ├── 0027_alter_grocery_dietary_fibers_and_more.cpython-38.pyc
+│   │       ├── 0028_meals.cpython-38.pyc
+│   │       ├── 0029_rename_meals_meal.cpython-38.pyc
+│   │       ├── 0030_profile_dates.cpython-38.pyc
+│   │       ├── 0031_alter_profile_dates.cpython-38.pyc
+│   │       ├── 0032_remove_profile_dates.cpython-38.pyc
+│   │       ├── 0033_mealgrocery.cpython-38.pyc
+│   │       ├── 0034_remove_meal_date.cpython-38.pyc
+│   │       ├── 0035_mealgrocery_updated_dietary_fibers_and_more.cpython-38.pyc
+│   │       ├── 0036_meal_date.cpython-38.pyc
+│   │       ├── 0037_alter_meal_date.cpython-38.pyc
+│   │       ├── 0038_alter_profile_user.cpython-38.pyc
+│   │       ├── 0039_remove_profile_week_goal.cpython-38.pyc
+│   │       ├── 0040_profile_steps.cpython-38.pyc
+│   │       ├── 0041_alter_profile_steps.cpython-38.pyc
+│   │       ├── 0042_steps_remove_profile_steps.cpython-38.pyc
+│   │       ├── 0043_steps_user.cpython-38.pyc
+│   │       ├── 0044_alter_steps_user.cpython-38.pyc
+│   │       ├── 0045_steps_date.cpython-38.pyc
+│   │       ├── 0046_successstories.cpython-38.pyc
+│   │       ├── 0047_alter_profile_calorie_goal_alter_profile_goal_weight_and_more.cpython-38.pyc
+│   │       ├── 0047_alter_profile_goal_weight_alter_profile_start_weight.cpython-38.pyc
+│   │       ├── 0047_updatedweight.cpython-38.pyc
+│   │       ├── 0048_alter_recipe_ingredients_alter_recipe_instructions.cpython-38.pyc
+│   │       ├── 0048_delete_updatedweight.cpython-38.pyc
+│   │       ├── 0048_profile_current_weight_alter_profile_calorie_goal_and_more.cpython-38.pyc
+│   │       ├── 0049_alter_profile_current_weight.cpython-38.pyc
+│   │       ├── 0049_profile_current_weight.cpython-38.pyc
+│   │       ├── 0049_remove_profile_current_weight.cpython-38.pyc
+│   │       ├── 0049_rename_image_url_successstories_image_url_success.cpython-38.pyc
+│   │       ├── 0050_alter_profile_current_weight.cpython-38.pyc
+│   │       ├── 0050_remove_profile_current_weight.cpython-38.pyc
+│   │       ├── 0050_successstories_description_and_more.cpython-38.pyc
+│   │       ├── 0051_alter_profile_current_weight.cpython-38.pyc
+│   │       ├── 0051_alter_successstories_description_and_more.cpython-38.pyc
+│   │       ├── 0052_alter_profile_goal_weight_alter_profile_start_weight.cpython-38.pyc
+│   │       ├── 0052_remove_mealgrocery_grams_mealgrocery_updated_grams.cpython-38.pyc
+│   │       ├── 0053_alter_profile_current_weight_and_more.cpython-38.pyc
+│   │       ├── 0054_alter_profile_calorie_goal_and_more.cpython-38.pyc
+│   │       ├── 0055_alter_profile_current_weight.cpython-38.pyc
+│   │       ├── 0056_remove_profile_current_weight.cpython-38.pyc
+│   │       └── __init__.cpython-38.pyc
+│   ├── models.py
+│   ├── __pycache__
+│   │   ├── admin.cpython-38.pyc
+│   │   ├── apps.cpython-38.pyc
+│   │   ├── forms.cpython-38.pyc
+│   │   ├── __init__.cpython-38.pyc
+│   │   ├── models.cpython-38.pyc
+│   │   ├── urls.cpython-38.pyc
+│   │   └── views.cpython-38.pyc
+│   ├── static
+│   │   └── caloriecounter
+│   │       ├── javascript.js
+│   │       └── styles.css
+│   ├── templates
+│   │   └── caloriecounter
+│   │       ├── add_steps.html
+│   │       ├── create_profile.html
+│   │       ├── diary.html
+│   │       ├── edit_profile.html
+│   │       ├── fasting.html
+│   │       ├── grocery_detail.html
+│   │       ├── grocery_list.html
+│   │       ├── layout.html
+│   │       ├── login.html
+│   │       ├── profile.html
+│   │       ├── recipe_list.html
+│   │       ├── register.html
+│   │       ├── show_meal.html
+│   │       └── welcome.html
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── capstone
+│   ├── asgi.py
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-38.pyc
+│   │   ├── settings.cpython-38.pyc
+│   │   ├── urls.cpython-38.pyc
+│   │   └── wsgi.cpython-38.pyc
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── db.sqlite3
+├── docker-compose.yml
+├── Dockerfile
+├── manage.py
+├── README.md
+├── requirements.txt
+└── tree.txt
+
+11 directories, 169 files
